@@ -27,22 +27,6 @@
   },
   {
     "ContainingType": "LibEaseAPI.Controllers.BookController",
-    "Method": "DeleteBook",
-    "RelativePath": "api/Book",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "BookId",
-        "Type": "System.Guid",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "LibEaseAPI.Controllers.BookController",
     "Method": "GetBookById",
     "RelativePath": "api/Book/{BookId}",
     "HttpMethod": "GET",
@@ -73,6 +57,22 @@
       {
         "Name": "updateBookDto",
         "Type": "LibEaseAPI.Models.UpdateBookDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibEaseAPI.Controllers.BookController",
+    "Method": "DeleteBook",
+    "RelativePath": "api/Book/{BookId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookId",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],

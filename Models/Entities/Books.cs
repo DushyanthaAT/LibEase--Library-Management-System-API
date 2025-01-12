@@ -11,6 +11,11 @@
 
         public DateTime AddedDate { get; set; }
 
+        public Book()
+        {
+            AddedDate = DateTime.Now;
+        }
+
 
     }
 }

@@ -9,5 +9,9 @@
         public string Description { get; set; }
         public DateTime AddedDate { get; set; }
 
+        public UpdateBookDto() {
+            AddedDate = DateTime.Now;
+        }
+
     }
 }

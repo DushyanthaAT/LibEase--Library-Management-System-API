@@ -74,6 +74,7 @@ namespace LibEaseAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("{BookId:guid}")]
         public IActionResult DeleteBook(Guid BookId) 
         { 
             var book =dbContext.Books.Find(BookId); 

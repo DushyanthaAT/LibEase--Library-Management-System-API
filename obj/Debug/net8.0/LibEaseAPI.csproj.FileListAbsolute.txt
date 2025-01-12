@@ -135,3 +135,4 @@ E:\Expernetic Task\LibEaseAPI\LibEaseAPI\obj\Debug\net8.0\refint\LibEaseAPI.dll
 E:\Expernetic Task\LibEaseAPI\LibEaseAPI\obj\Debug\net8.0\LibEaseAPI.pdb
 E:\Expernetic Task\LibEaseAPI\LibEaseAPI\obj\Debug\net8.0\LibEaseAPI.genruntimeconfig.cache
 E:\Expernetic Task\LibEaseAPI\LibEaseAPI\obj\Debug\net8.0\ref\LibEaseAPI.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\obj\Debug\net8.0\LibEaseAPI.sourcelink.json
