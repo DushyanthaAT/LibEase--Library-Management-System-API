@@ -11,16 +11,56 @@
   },
   {
     "ContainingType": "LibEaseAPI.Controllers.BookController",
-    "Method": "AddBook",
+    "Method": "AddBookAsync",
     "RelativePath": "api/Book",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "addBookDto",
-        "Type": "LibEaseAPI.Models.AddBookDto",
-        "IsRequired": true
+        "Name": "Author",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Genre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PublicationYear",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AddedDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageSrc",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -43,7 +83,7 @@
   },
   {
     "ContainingType": "LibEaseAPI.Controllers.BookController",
-    "Method": "UpdateBook",
+    "Method": "UpdateBookAsync",
     "RelativePath": "api/Book/{BookId}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -55,9 +95,39 @@
         "IsRequired": true
       },
       {
-        "Name": "updateBookDto",
-        "Type": "LibEaseAPI.Models.UpdateBookDto",
-        "IsRequired": true
+        "Name": "Author",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AddedDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageSrc",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

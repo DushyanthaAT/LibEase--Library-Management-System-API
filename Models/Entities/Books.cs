@@ -1,4 +1,6 @@
-﻿namespace LibEaseAPI.Models.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LibEaseAPI.Models.Entities
 {
     public class Book
     {
@@ -10,6 +12,14 @@
         public string Description { get; set; }
 
         public DateTime AddedDate { get; set; }
+
+        public string ImageName { get; set; }
+
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
+
+        [NotMapped]
+        public string ImageSrc { get; set; }
 
         public Book()
         {

@@ -22,19 +22,70 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/AddBookDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddBookDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddBookDto"
+                "type": "object",
+                "properties": {
+                  "Author": {
+                    "type": "string"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Genre": {
+                    "type": "string"
+                  },
+                  "PublicationYear": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "AddedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ImageName": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageSrc": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Author": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "Genre": {
+                  "style": "form"
+                },
+                "PublicationYear": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "AddedDate": {
+                  "style": "form"
+                },
+                "ImageName": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ImageSrc": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -85,19 +136,57 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateBookDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateBookDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateBookDto"
+                "type": "object",
+                "properties": {
+                  "Author": {
+                    "type": "string"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "AddedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ImageName": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageSrc": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Author": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "AddedDate": {
+                  "style": "form"
+                },
+                "ImageName": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ImageSrc": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -131,60 +220,5 @@
       }
     }
   },
-  "components": {
-    "schemas": {
-      "AddBookDto": {
-        "type": "object",
-        "properties": {
-          "author": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "genre": {
-            "type": "string",
-            "nullable": true
-          },
-          "publicationYear": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "addedDate": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateBookDto": {
-        "type": "object",
-        "properties": {
-          "author": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "addedDate": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      }
-    }
-  }
+  "components": { }
 }
