@@ -7,19 +7,17 @@ namespace LibEaseAPI.Models.Entities
         public Guid BookId { get; set; }
         public string Author { get; set; }
         public string Title { get; set; }
-        //public string Genre { get; set; }
-        //public int PublicationYear { get; set; }
         public string Description { get; set; }
 
         public DateTime AddedDate { get; set; }
 
-        public string ImageName { get; set; }
+        public string? ImageName { get; set; }
 
         [NotMapped]
-        public IFormFile ImageFile { get; set; }
+        public IFormFile? ImageFile { get; set; }
 
         [NotMapped]
-        public string ImageSrc { get; set; }
+        public string? ImageSrc { get; set; }
 
         public Book()
         {
