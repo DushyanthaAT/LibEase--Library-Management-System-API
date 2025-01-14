@@ -44,16 +44,6 @@
         "IsRequired": false
       },
       {
-        "Name": "Genre",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "PublicationYear",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
         "Name": "Description",
         "Type": "System.String",
         "IsRequired": false

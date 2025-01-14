@@ -63,13 +63,6 @@
                   "Title": {
                     "type": "string"
                   },
-                  "Genre": {
-                    "type": "string"
-                  },
-                  "PublicationYear": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
                   "Description": {
                     "type": "string"
                   },
@@ -94,12 +87,6 @@
                   "style": "form"
                 },
                 "Title": {
-                  "style": "form"
-                },
-                "Genre": {
-                  "style": "form"
-                },
-                "PublicationYear": {
                   "style": "form"
                 },
                 "Description": {
