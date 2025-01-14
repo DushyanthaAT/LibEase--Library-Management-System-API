@@ -136,3 +136,16 @@ E:\Expernetic Task\LibEaseAPI\LibEaseAPI\obj\Debug\net8.0\LibEaseAPI.pdb
 E:\Expernetic Task\LibEaseAPI\LibEaseAPI\obj\Debug\net8.0\LibEaseAPI.genruntimeconfig.cache
 E:\Expernetic Task\LibEaseAPI\LibEaseAPI\obj\Debug\net8.0\ref\LibEaseAPI.dll
 E:\Expernetic Task\LibEaseAPI\LibEaseAPI\obj\Debug\net8.0\LibEaseAPI.sourcelink.json
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+E:\Expernetic Task\LibEaseAPI\LibEaseAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
