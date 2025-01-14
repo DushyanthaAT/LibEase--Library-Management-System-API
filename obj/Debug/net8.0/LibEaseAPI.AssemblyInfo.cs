@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibEaseAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+934971a1db1ba6d3d524f15f6bf3e8ef6b4e521a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4dcf4aad91a13a2d63f055d00600d9ef0800d5ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibEaseAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibEaseAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
