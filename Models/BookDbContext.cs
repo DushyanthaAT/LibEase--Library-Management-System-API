@@ -11,9 +11,10 @@ namespace LibEaseAPI.Models
         {
         }
 
+        // DbSet representing the Books table
         public DbSet<Book> Books { get; set; }
 
-        // Override OnModelCreating to seed data
+        // Override OnModelCreating to configure the model and seed data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -21,7 +22,8 @@ namespace LibEaseAPI.Models
             // Hash password for user
             var hasher = new PasswordHasher<User>();
 
-            // Seed a default user
+
+            // Seed a default user to the database
             builder.Entity<User>().HasData(new User
             {
                 Id = Guid.NewGuid().ToString(), // Unique ID

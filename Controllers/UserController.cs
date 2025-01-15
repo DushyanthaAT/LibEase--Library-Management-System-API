@@ -16,17 +16,21 @@ namespace LibEaseAPI.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
 
+
+        // Constructor to initialize UserManager for user-related operations and configuration for JWT settings
         public AuthController(UserManager<User> userManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _configuration = configuration;
         }
 
+        // Login method to authenticate the user and generate a JWT token
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
 
+            // Check if user exists and password is correct
             if (user == null || !await _userManager.CheckPasswordAsync(user, loginDto.Password))
             {
                 return Unauthorized(new { message = "Invalid email or password" });
@@ -37,11 +41,12 @@ namespace LibEaseAPI.Controllers
             {
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) // Unique token identifier
             };
 
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
 
+            // Create the JWT token with claims and signing key
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
@@ -50,6 +55,7 @@ namespace LibEaseAPI.Controllers
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
             );
 
+            // Return the generated token and its expiration time
             return Ok(new
             {
                 token = new JwtSecurityTokenHandler().WriteToken(token),

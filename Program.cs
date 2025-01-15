@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// Add controller services
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -26,6 +27,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1"
     });
 
+    // Add JWT Bearer token authentication support in Swagger UI
     options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme()
     {
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
@@ -36,6 +38,7 @@ builder.Services.AddSwaggerGen(options =>
         Scheme = "bearer"
     });
 
+    // Add security requirements for Swagger to use JWT
     options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement()
     {
         {
@@ -51,11 +54,10 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-
+// Configure database connection (SQLite)
 builder.Services.AddDbContext<BookDbContext>(opt => { opt.UseSqlite(builder.Configuration.GetConnectionString("DbConnectionString")); });
 
-
-//authentication
+// Authentication setup with JWT Bearer Token
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -75,7 +77,7 @@ builder.Services.AddAuthentication(options =>
          };
      });
 
-
+// Add Identity services with Entity Framework Core as the store
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<BookDbContext>()
     .AddDefaultTokenProviders();
@@ -86,7 +88,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
         builder => builder
-            .WithOrigins("http://localhost:5173")
+            .WithOrigins("http://localhost:5173") // Frontend URL (adjust as needed)
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials());
@@ -94,6 +96,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Enable CORS policy
 app.UseCors("AllowSpecificOrigin");
 
 
@@ -108,6 +111,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();    //Serve files from wwwroot
+
+// Serve static files from a custom folder for images
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(

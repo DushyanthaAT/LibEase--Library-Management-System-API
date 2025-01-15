@@ -1,8 +1,8 @@
 ﻿using LibEaseAPI.Models;
 using LibEaseAPI.Models.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
 namespace LibEaseAPI.Controllers
@@ -12,6 +12,8 @@ namespace LibEaseAPI.Controllers
     public class BookController : ControllerBase
     {
         private readonly BookDbContext dbContext;
+
+        //for manage image file storage on the server
         private readonly IWebHostEnvironment _hostEnvironment;
 
         public BookController(BookDbContext dbContext, IWebHostEnvironment hostEnvironment)
@@ -20,6 +22,8 @@ namespace LibEaseAPI.Controllers
             this._hostEnvironment = hostEnvironment;
         }
 
+
+        // to retrieve all books with additional image URL information
         [HttpGet]
         public async Task<IActionResult> GetAllBooks()
         {
@@ -39,6 +43,7 @@ namespace LibEaseAPI.Controllers
 
         }
 
+        //to add a new book with details and an image uploaded as a file
         [HttpPost]
         public async Task<IActionResult> AddBookAsync([FromForm] AddBookDto addBookDto)
         {
@@ -71,6 +76,7 @@ namespace LibEaseAPI.Controllers
             }
         }
 
+        //to fetches a specific book by its unique identifier.
         [HttpGet]
         [Route("{BookId:guid}")]
         public async Task<IActionResult> GetBookById(Guid BookId)
@@ -93,11 +99,10 @@ namespace LibEaseAPI.Controllers
             {
                 return NotFound(new { message = "Book not found." });
             }
-
             return Ok(book);
         }
 
-
+        //to updates details of an existing book and replacing its image.
         [HttpPut]
         [Route("{BookId:guid}")]
         public async Task<IActionResult> UpdateBookAsync(Guid BookId, [FromForm] UpdateBookDto updateBookDto)
@@ -143,6 +148,7 @@ namespace LibEaseAPI.Controllers
             }
         }
 
+        //to delete a book by its identifier, along with its associated image file.
         [HttpDelete]
         [Route("{BookId:guid}")]
         public IActionResult DeleteBook(Guid BookId)
@@ -155,7 +161,7 @@ namespace LibEaseAPI.Controllers
 
             try
             {
-                DeleteImage(book.ImageName);
+                DeleteImage(book.ImageName); // Remove the image from the server
                 dbContext.Books.Remove(book);
                 dbContext.SaveChanges();
                 return Ok(new { message = "Book deleted successfully." });
@@ -166,6 +172,7 @@ namespace LibEaseAPI.Controllers
             }
         }
 
+        // Save an uploaded image file and return its name
         [NonAction]
         private async Task<string> SaveImage(IFormFile imageFile)
         {
@@ -174,6 +181,7 @@ namespace LibEaseAPI.Controllers
                 throw new ArgumentNullException(nameof(imageFile), "Image file cannot be null.");
             }
 
+            // Generate unique image name
             string imageName = new string(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '-');
             imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
 
@@ -183,6 +191,7 @@ namespace LibEaseAPI.Controllers
                 Directory.CreateDirectory(imageDirectory);
             }
 
+            // Save image to the server
             var imagePath = Path.Combine(imageDirectory, imageName);
             using (var fileStream = new FileStream(imagePath, FileMode.Create))
             {
@@ -192,6 +201,7 @@ namespace LibEaseAPI.Controllers
             return imageName;
         }
 
+        // Delete an image file from the server
         [NonAction]
         public void DeleteImage(string imageName)
         {
